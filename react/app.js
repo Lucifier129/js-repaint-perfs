@@ -10,7 +10,7 @@ var DBMon = React.createClass({
   loadSamples: function () {
     this.setState({ databases: ENV.generateData().toArray() });
     Monitoring.renderRate.ping();
-    setTimeout(this.loadSamples, ENV.timeout);
+    setTimeout(this.loadSamples.bind(this), ENV.timeout);
   },
 
   componentDidMount: function() {
@@ -19,7 +19,7 @@ var DBMon = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div id="container" classNmae="abd">
         <table className="table table-striped latest-data">
           <tbody>
             {
@@ -59,3 +59,10 @@ var DBMon = React.createClass({
 });
 
 React.render(<DBMon />, document.getElementById('dbmon'));
+
+
+
+
+
+
+
